@@ -3,4 +3,6 @@
   <button {{action deleteItem this}} class='small right'>X</button>
   {{view Ember.TextField valueBinding="newProjectName"}}
   <button class='small' {{ action 'addProjectEntry' team }}>Add project</button>
+  {{ team.projects.length }}
+  {{ render 'projects' team.projects }}
 </span>
