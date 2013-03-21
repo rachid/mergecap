@@ -1,0 +1,17 @@
+settings: &defaults
+  github:
+    key: ''
+    secret: ''
+  faye:
+    token: ''
+    server: ''
+
+production:
+  <<: *defaults
+test:
+  <<: *defaults
+development:
+  <<: *defaults
+  github:
+    key: ''
+    secret: ''
