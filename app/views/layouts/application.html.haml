@@ -1,0 +1,50 @@
+!!! 5
+/ paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+/[if lt IE 7 ] <html class=\"ie6\" lang=\"en\">
+/[if IE 7 ]    <html class=\"ie7\" lang=\"en\">
+/[if IE 8 ]    <html class=\"ie8\" lang=\"en\">
+/[if IE 9 ]    <html class=\"ie9\" lang=\"en\">
+/[if (gt IE 9)|!(IE)] <!--> <html lang=\"en\">
+
+%head
+  %meta{ :charset => "utf-8" }
+
+  -# Uncomment to make IE8 render like IE7
+  -# meta http-equiv="X-UA-Compatible" content="IE=7"
+
+    -# Set the viewport width to device width for mobile
+  %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
+
+  %title= content_for?(:title) ? yield(:title) : "Mergecap"
+
+  = stylesheet_link_tag "application"
+  = javascript_include_tag "http://mergecap.com:9292/faye.js"
+  = javascript_include_tag "vendor/custom.modernizr"
+  = csrf_meta_tag
+
+%body
+  %nav.top-bar
+    %ul.title-area
+      %li.name
+        %h1= link_to 'Mergecap', '#'
+
+    %section.top-bar-section
+      %ul.left
+        %li.name
+          = link_to 'Teams', '/#teams'
+        %li.name
+          = link_to 'Members', '/'
+        %li.name
+          - if current_user
+            = link_to 'Sign out', signout_path
+          - else
+            = link_to 'Login using Github', '/auth/github'
+
+        - if current_user
+          %li.name
+            = link_to root_path do
+              Signed in as
+              = current_user.name
+  = yield
+
+= javascript_include_tag 'application'

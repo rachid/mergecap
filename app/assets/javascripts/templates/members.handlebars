@@ -1,0 +1,31 @@
+<div class='row'>
+  <div class='panel'>
+    <label>Add new Github member:</label>
+      {{view Ember.TextField valueBinding="newEntryName" action="addEntry"}}
+      {{#if notFound}}
+        <small class="error">Sorry user not found, try again...</small>
+      {{/if}}
+  </div>
+</div>
+
+<div class='row'>
+  <div class='small-12 columns'>
+    {{#each controller}}
+    <div class="small-3 large-3 columns panel">
+  <div>
+      <div {{ bindAttr class="mergecap" }}> <div>
+          <button class='small right' {{action removeMember this}}>x</button>
+          <h4>{{ name }}</h4>
+          <div class='merge-sign'>
+          <img src='/assets/merge.png'>
+          </div>
+          <a {{action setMergeCap this}}>
+            <img class='avatar' {{ bindAttr src="avatar" }} />
+          </a>
+          </div>
+          </div>
+          </div>
+    </div>
+    {{/each}}
+  </div>
+</div>

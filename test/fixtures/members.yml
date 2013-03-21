@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  mergecap: false
+  name: MyString
+  avatar: MyString
+  team_id: 1
+
+two:
+  name: MyString
+  mergecap: false
+  name: MyString
+  avatar: MyString
+  team_id: 1

@@ -1,0 +1,15 @@
+<div class='row'>
+  {{#each team in controller}}
+    {{ render 'team' team}}
+  {{else}}
+    <div class='row'>
+      <div class='panel'>
+        <label>Add your team</label>
+          {{view Ember.TextField valueBinding="newEntryName" action="addEntry"}}
+          {{#each error in controller.errors}}
+            <small class="error">Sorry user not found, try again...</small>
+          {{/each}}
+      </div>
+    </div>
+  {{/each}}
+</div>
