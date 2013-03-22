@@ -1,8 +1,8 @@
 <span class='small-12 columns'>
   <h3>{{name}}</h3>
-  <button {{action deleteItem this}} class='small right'>X</button>
+  <div class='row'>
   {{view Ember.TextField valueBinding="newProjectName"}}
   <button class='small' {{ action 'addProjectEntry' team }}>Add project</button>
-  {{ team.projects.length }}
+  </div>
   {{ render 'projects' team.projects }}
 </span>

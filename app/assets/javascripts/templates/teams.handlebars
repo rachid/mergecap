@@ -1,6 +1,10 @@
 <div class='row'>
   {{#each team in controller}}
-    {{ render 'team' team}}
+    <button {{action deleteItem team}} class='small right'>X</button>
+    <h3>{{ team.name }}</h3>
+    {{ view Ember.TextField valueBinding='newProjectName' }}
+    <button {{ action 'addProjectEntry' team }}>Add</button>
+    {{ render 'projects' team.projects }}
   {{else}}
     <div class='row'>
       <div class='panel'>
