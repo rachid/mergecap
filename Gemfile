@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem "ember-rails", github: 'emberjs/ember-rails'
+gem "ember-rails"
 gem 'haml'
 gem 'faye'
 gem 'thin'
@@ -14,6 +14,8 @@ gem 'pry'
 gem 'foreman'
 gem 'omniauth-github'
 gem "github_api"
+gem "friendly_id", "~> 4.0.9"
+
 
 # Gems used only for assets and not required
 # in production environments by default.
