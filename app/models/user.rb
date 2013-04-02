@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   end
 
   def member
-    Member.find_by_name(name)
+    Member.find_by_name(name) || Member.new
   end
 
   def related_projects
