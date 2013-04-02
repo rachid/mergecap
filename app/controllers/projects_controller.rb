@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    mergecap = params[:project].delete(:mergecap)
     respond_with current_user.projects.create(params[:project])
   end
 
@@ -14,7 +15,13 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    respond_with current_user.projects.update(params[:id], params[:project])
+    project = current_user.related_projects.find(params[:id])
+
+    mergecap = params[:project].delete(:mergecap)
+    project.update_attributes(params[:project])
+    project.mergecap = mergecap
+    project.save
+    respond_with project
   end
 
   def destroy

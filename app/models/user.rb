@@ -14,4 +14,12 @@ class User < ActiveRecord::Base
       user.email = auth["info"]["email"]
     end
   end
+
+  def member
+    Member.find_by_name(name)
+  end
+
+  def related_projects
+    Project.includes(:project_members).where(project_members: { member_id: member.id })
+  end
 end

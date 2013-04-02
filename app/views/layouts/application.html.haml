@@ -23,28 +23,41 @@
   = csrf_meta_tag
 
 %body
-  %nav.top-bar
-    %ul.title-area
-      %li.name
-        %h1= link_to 'Mergecap', '#'
+  - if current_user
+    %nav.top-bar
+      %ul.title-area
+        %li.name
+          %h1
+            %a{:href => "#"} Mergecap.com
+        %li.toggle-topbar.menu-icon
+          %a{:href => "#"}
+            %span Menu
+      %section.top-bar-section
+        / Left Nav Section
+        %ul.right
+          %li.divider
+          %li.active
+            %a{:href => signout_path} Sign out (#{current_user.name})
+          %li.divider
+          %li
+            %span.left= image_tag current_user.member.avatar, width: '38px' if current_user.member
 
-    %section.top-bar-section
-      %ul.left
-        %li.name
-          = link_to 'Teams', '/#teams'
-        %li.name
-          = link_to 'Members', '/'
-        %li.name
-          - if current_user
-            = link_to 'Sign out', signout_path
-          - else
-            = link_to 'Login using Github', '/auth/github'
-
-        - if current_user
-          %li.name
-            = link_to root_path do
-              Signed in as
-              = current_user.name
-  = yield
+    = yield
+  - else
+    .panel
+      .row
+        .small-6.large-6.columns
+          %h3 Hey you developers!
+          %p
+            Welcome to the mergecap.com app. Use this tool freely to manage your merges to master with your team. Make sure to connect to a big screen, just because it's cool.
+          %p
+            There is one gotcha, the app is heavily under development so bare with us.
+            By the way the code used for this app is opensource! get or see it at
+            = link_to 'the source @ github', 'https://github.com/rachid/mergecap'
+        .small-6.large-6.columns
+          .row
+            .small-5.small-centered.columns
+              = image_tag '/assets/github-logo.png', width: '300px'
+              = link_to 'Sign in using Github', '/auth/github', { class: 'button round' }
 
 = javascript_include_tag 'application'

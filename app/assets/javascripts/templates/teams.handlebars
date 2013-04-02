@@ -1,19 +1,46 @@
 <div class='row'>
-  {{#each team in controller}}
-    <button {{action deleteItem team}} class='small right'>X</button>
-    <h3>{{ team.name }}</h3>
-    {{ view Ember.TextField valueBinding='newProjectName' }}
-    <button {{ action 'addProjectEntry' team }}>Add</button>
-    {{ render 'projects' team.projects }}
-  {{else}}
-    <div class='row'>
-      <div class='panel'>
-        <label>Add your team</label>
-          {{view Ember.TextField valueBinding="newEntryName" action="addEntry"}}
-          {{#each error in controller.errors}}
-            <small class="error">Sorry user not found, try again...</small>
-          {{/each}}
+  <div class='small-3 columns' id='sidebar'>
+    <div class='row collapse'>
+      <div class='small-4 columns'>
+        <span class='prefix radius'>Team</span>
+      </div>
+      <div class='small-8 columns'>
+        {{view Ember.TextField valueBinding="newEntryName" action="addEntry"}}
       </div>
     </div>
-  {{/each}}
+    <div class="section-container accordion" data-section="accordion">
+      {{#each team in controller}}
+      <section class="section">
+        <div class='title'>
+          <div class='row collapse'>
+            <div class='small-9 columns'>
+              {{#linkTo 'team' team href='#'}}{{team.name}}{{/linkTo}}
+            </div>
+            <div class='small-3 columns'>
+              <span class='radius alert label counter'>{{team.projects.length}}</span>
+            </div>
+          </div>
+        </div>
+        <div class='content'>
+          <ul class='side-nav'>
+            {{#each project in team.projects}}
+            <li>
+              {{#linkTo 'project' project tagName='a' href='#'}}{{project.name}}{{/linkTo}}
+            </li>
+            {{else}}
+            <span class='radius alert label'>
+              No project found.
+            </span>
+          </p>
+          {{/each}}
+          {{view Mergecap.NewProjectView}}
+        </ul>
+      </div>
+    </section>
+    {{/each}}
+  </div>
+</div>
+  <div class='small-9 columns' id='content'>
+    {{outlet}}
+  </div>
 </div>

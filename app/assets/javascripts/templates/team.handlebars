@@ -1,8 +1,3 @@
-<span class='small-12 columns'>
-  <h3>{{name}}</h3>
-  <div class='row'>
-  {{view Ember.TextField valueBinding="newProjectName"}}
-  <button class='small' {{ action 'addProjectEntry' team }}>Add project</button>
-  </div>
-  {{ render 'projects' team.projects }}
-</span>
+<div class='small-12 columns'>
+  {{outlet}}
+</div>

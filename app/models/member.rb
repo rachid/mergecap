@@ -1,7 +1,10 @@
 require 'net/http'
 
 class Member < ActiveRecord::Base
-  attr_accessible :avatar, :mergecap, :name
+  attr_accessible :avatar, :mergecap, :name, :project_ids
+
+  has_many :project_members
+  has_many :projects, through: :project_members
 
   def self.broadcast(channel = '/anyone', data)
     token = APP_SETTINGS['faye']['token']

@@ -15,7 +15,7 @@
 // $em-base: 16px;
 
 // We use these to control various global styles
-$body-bg: #fff;
+$body-bg: #fff url('/assets/bg.png');
 // $body-font-color: #222;
 // $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
@@ -118,7 +118,7 @@ $body-bg: #fff;
 // $paragraph-font-weight: normal;
 // $paragraph-font-size: 1em;
 // $paragraph-line-height: 1.6;
-// $paragraph-margin-bottom: emCalc(20px);
+$paragraph-margin-bottom: emCalc(0px);
 // $paragraph-aside-font-size: emCalc(14px);
 // $paragraph-aside-line-height: 1.35;
 // $paragraph-aside-font-style: italic;
@@ -504,7 +504,7 @@ $body-bg: #fff;
 // $dropdown-mobile-left: 0;
 
 // We use this to control the styles for when the dropdown has custom content.
-// $f-dropdown-content-padding: emCalc(20px);
+$f-dropdown-content-padding: emCalc(0px);
 
 //
 // Flex Video Variables
@@ -797,18 +797,18 @@ $body-bg: #fff;
 // $section-function-factor: 10%;
 
 // These style the titles
-// $section-title-color: #333;
-// $section-title-bg: #efefef;
+$section-title-color: #AAA;
+$section-title-bg: #393939;
 // $section-title-bg-active: darken($section-title-bg, $section-function-factor);
-// $section-title-bg-active-tabs: #fff;
+$section-title-bg-active-tabs: #4A4A4A;
 
 // Want to control border size, here ya go!
-// $section-border-size: 1px;
+$section-border-size: 0px;
 // $section-border-style: solid;
 // $section-border-color: #ccc;
 
 // Control the color of the background and some size options
-// $section-content-bg: #fff;
+$section-content-bg: #444;
 // $section-vertical-nav-min-width: emCalc(200px);
 // $section-bottom-margin: emCalc(20px);
 
@@ -817,12 +817,12 @@ $body-bg: #fff;
 //
 
 // We use this to control padding.
-// $side-nav-padding: emCalc(14px) 0;
+$side-nav-padding: emCalc(0px) 0;
 
 // We use these to control list styles.
 // $side-nav-list-type: none;
 // $side-nav-list-position: inside;
-// $side-nav-list-margin: 0 0 emCalc(7px) 0;
+$side-nav-list-margin: 0 0 emCalc(0px) 0;
 
 // We use these to control link styles.
 // $side-nav-link-color: $primary-color;

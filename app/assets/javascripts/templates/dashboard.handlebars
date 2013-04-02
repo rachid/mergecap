@@ -1,0 +1,20 @@
+<div class='row'>
+  <header>
+    <h3>{{ content.name }}</h3>
+  </header>
+  <div class='small-8 columns'>
+    {{#each project in content.projects }}
+      <div class='small-4 columns project-block' {{ action setMergecap project }}>
+        <h3>{{ project.name }}</h3>
+        {{#if project.mergecap }}
+          <div class='label success round'>
+            {{ project.mergecap }}
+          </div>
+        {{/if}}
+      </div>
+    {{else}}
+      No projects found.
+    {{/each}}
+  </div>
+</div>
+

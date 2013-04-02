@@ -1,0 +1,23 @@
+<h3>{{ content.name }}
+  <small>
+    <div class='right'>Jump to {{#linkTo 'dashboard' content.team}}team dashboard{{/linkTo}}</div>
+  </small>
+</h3>
+<div class='row'>
+  <div class='panel'>
+    <label>Add new/existing Github member:</label>
+      {{view Ember.TextField valueBinding="newEntryName" action="addEntry"}}
+      {{#if notFound}}
+        <small class="error">Sorry user not found, try again...</small>
+      {{/if}}
+  </div>
+</div>
+
+{{ content.projectMembers.length }}
+{{#each project_member in content.project_members }}
+  <img class='avatar thumb th' {{ bindAttr src="project_member.member.avatar" }} />
+  {{else}}
+  <small class="error">No members found for this project, use the form to add additional members</small>
+{{/each}}
+
+

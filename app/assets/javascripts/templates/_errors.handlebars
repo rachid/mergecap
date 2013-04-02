@@ -1,0 +1,7 @@
+{{ name }}
+  {{#each error in Mergecap.Error}}
+    <small class='error'>
+    {{error.field }}
+    {{error.messages.name}}
+    </small>
+  {{/each}}

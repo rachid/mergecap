@@ -2,7 +2,11 @@ class MembersController < ApplicationController
   respond_to :json
 
   def index
-    respond_with Member.all
+    if params[:name]
+      respond_with Member.where(name: params[:name])
+    else
+      respond_with Member.all
+    end
   end
 
   def show

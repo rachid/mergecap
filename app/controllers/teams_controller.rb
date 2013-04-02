@@ -6,7 +6,7 @@ class TeamsController < ApplicationController
   end
 
   def show
-    respond_with current_user.teams.find(params[:id])
+    respond_with Team.find(params[:id])
   end
 
   def create

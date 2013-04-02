@@ -11,13 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130319221743) do
+ActiveRecord::Schema.define(:version => 20130325233635) do
 
   create_table "members", :force => true do |t|
     t.string   "name"
     t.boolean  "mergecap"
     t.string   "avatar"
     t.integer  "team_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "project_members", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "member_id"
+    t.boolean  "mergecap"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -35,7 +43,10 @@ ActiveRecord::Schema.define(:version => 20130319221743) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "slug"
   end
+
+  add_index "teams", ["slug"], :name => "index_teams_on_slug", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "username"

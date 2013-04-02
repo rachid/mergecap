@@ -1,0 +1,9 @@
+<div class='row'>
+  <div class='columns large-12'>
+    {{view Ember.TextField valueBinding="view.newMemberName"}}
+    {{#if errors}}
+      <small class='error'>{{errors.name}}</small>
+    {{/if}}
+    <input type="submit" value="Add" class='button small'>
+  </div>
+</div>

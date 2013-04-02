@@ -1,0 +1,11 @@
+<div class='row collapse'>
+  <div class='columns small-8'>
+    {{view Ember.TextField valueBinding="view.newProjectName"}}
+    {{#if errors}}
+    <small class='error'>{{errors.name}}</small>
+    {{/if}}
+  </div>
+  <div class='columns small-4'>
+    <input type="submit" value="Add" class='button small success'>
+  </div>
+</div>
