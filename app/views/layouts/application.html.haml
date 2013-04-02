@@ -39,8 +39,9 @@
           %li.has-dropdown
             = link_to 'My team dashboards', '#teams'
             %ul.dropdown
-              - current_user.member.projects.map(&:team).uniq.each do |team|
-                %li= link_to team.name, ['#/dashboard', team.id].join('/')
+              - if current_user.member
+                - current_user.member.projects.map(&:team).uniq.each do |team|
+                  %li= link_to team.name, ['#/dashboard', team.id].join('/')
         %ul.right
           %li.divider
           %li.active
