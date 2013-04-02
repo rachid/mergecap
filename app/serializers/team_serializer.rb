@@ -3,4 +3,5 @@ class TeamSerializer < ActiveModel::Serializer
 
   attributes :name, :id, :slug
   has_many :projects
+  has_many :members
 end

@@ -1,3 +1,8 @@
 === Mergecap.com app
+The mergecap app provides a simple solution to manage merge processes, preventing conflicts or extra overhead in teams larger than 3 developers. When using git as versioning.
 
-Very much work in progress.
+=== Ember.js
+Don't expect too much of the code base, it is an ongoing proces of learning ember.js. So lets call it a prototype or a large spike.
+
+=== The future
+I don't know what that will bring but I am planning on choosing a point where I reimplement the whole app as soon as I have gained enough knowledge on how Ember.js really works. And offcourse backed by tests.

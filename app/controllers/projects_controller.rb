@@ -21,6 +21,9 @@ class ProjectsController < ApplicationController
     project.update_attributes(params[:project])
     project.mergecap = mergecap
     project.save
+
+    Project.push_me(project.team_id)
+
     respond_with project
   end
 

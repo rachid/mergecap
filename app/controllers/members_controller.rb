@@ -2,8 +2,8 @@ class MembersController < ApplicationController
   respond_to :json
 
   def index
-    if params[:name]
-      respond_with Member.where(name: params[:name])
+    if params[:name] && params[:team_id]
+      respond_with Member.where(name: params[:name], team_id: params[:team_id])
     else
       respond_with Member.all
     end

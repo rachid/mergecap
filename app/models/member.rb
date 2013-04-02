@@ -1,7 +1,7 @@
 require 'net/http'
 
 class Member < ActiveRecord::Base
-  attr_accessible :avatar, :mergecap, :name, :project_ids
+  attr_accessible :avatar, :mergecap, :name, :project_ids, :team_id
 
   has_many :project_members
   has_many :projects, through: :project_members
