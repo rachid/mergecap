@@ -4,14 +4,27 @@
   </header>
   <div class='small-12 columns'>
     {{#each project in content.projects }}
-      <div class='small-4 columns project-block' {{ action setMergecap project }}>
-        <h3>{{ project.name }}</h3>
+    <div class='small-4 columns project-block' {{ bindAttr class='project.mergecap' }}>
+      <h3>{{ project.name }}</h3>
+        <button {{ action setMergecap project }}>
+          {{#if project.mergecap}}
+            Drop cap
+          {{else}}
+            Pickup cap
+          {{/if}}
+        </button>
         {{#if project.mergecap }}
+        <div class='small-4'>
+          <a class='th a radius' {{ action setMergecap project}}>
+          <img {{ bindAttr src='project.mergeCapMember.member.avatar'}}>
+        </a>
+         </div>
           <div class='label success round'>
             {{ project.mergecap }}
           </div>
         {{/if}}
       </div>
+      <i class="general foundicon-[icon]"></i>
     {{else}}
       No projects found.
     {{/each}}

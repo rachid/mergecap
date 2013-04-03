@@ -11,3 +11,9 @@ Mergecap.Project = DS.Model.extend
 
   becameInvalid: ->
     @trigger('error')
+
+  mergeCapMember:(->
+    @get('project_members').find (item) =>
+      item.get('member').get('name') == @get('mergecap')
+  ).property('mergecap')
+
