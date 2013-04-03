@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   respond_to :json
 
   def index
-    respond_with current_user.projects
+    respond_with current_user.related_projects
   end
 
   def create
