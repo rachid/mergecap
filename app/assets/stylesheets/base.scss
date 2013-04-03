@@ -18,12 +18,16 @@
 .project-block {
   background-color: #444444;
   color: #fff;
-  padding: 20px;
-  height: 270px;
+  padding: 10px;
   margin: 2px;
   @include radius(5px);
+  h1 {
+    color: white;
+  }
+  h2 {
+    color: white;
+  }
   h3 {
-    @include inset-shadow(true);
     color: $primary-color;
   }
 }
