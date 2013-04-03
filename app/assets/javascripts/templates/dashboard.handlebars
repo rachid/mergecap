@@ -5,7 +5,7 @@
   <div class='small-12 large-12 columns'>
     {{#each project in content.projects }}
     <div class='small-12 large-5 columns project-block' {{ bindAttr class='project.mergecap' }}>
-         <div class='small-8 large-8 columns'>
+         <div class='small-8 large-7 columns'>
            <div class='small-4 large-4'>
             <h1>{{ project.name }}</h1>
            </div>
@@ -15,20 +15,20 @@
              </div>
              {{else}}
              <div class='small-8 large-8'>
-                 <h3>Pick me up!</h3>
+               <h3>Free!</h3>
              </div>
            {{/if}}
          </div>
 
           {{#if project.mergecap }}
-         <div class='small-4 large-3 right columns'>
+         <div class='small-4 large-5 right columns'>
             <a class='th a radius' {{ action setMergecap project}}>
               <img {{ bindAttr src='project.mergeCapMember.avatar'}}>
             </a>
           </div>
         {{else}}
-         <div class='small-3 large-3 columns right'>
-            <button {{ action setMergecap project }}>Pick up</button>
+         <div class='small-3 large-5 columns'>
+            <button {{ action setMergecap project }}>Pickme</button>
         </div>
         {{/if}}
       </div>
